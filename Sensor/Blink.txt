@@ -1,0 +1,1 @@
+Sensor shows temperature and humidity.
