@@ -40,6 +40,15 @@ A general sketch for interfacing with various sensors, such as temperature and h
 ### 8. SerialBlinkExample
 A variation of the Blink sketch that adds serial communication. It allows you to control the blinking of the LED via commands sent over the serial port, illustrating basic serial communication.
 
+### 9. DualLightSwitchClimateMonitor
+A cloud-connected project that monitors temperature and humidity while enabling remote control of two light switches through the Arduino IoT Cloud. Features a configurable dashboard with real-time data updates and switch controls.
+
+### 10. wemos_mini_MQTT
+A pair of MQTT-based sketches for setting up communication between two Wemos D1 Mini ESP8266 boards.
+
+wemos_mini_MQTT_publisher: Publishes temperature data from a DHT sensor and controls two relays, allowing remote relay control and data updates.
+wemos_mini_MQTT_receiver: Displays the received temperature and relay states on an OLED screen, synchronizing with the publisher to mirror relay states.
+
 ## Getting Started
 
 ### Requirements
