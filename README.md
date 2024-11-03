@@ -42,12 +42,37 @@ A variation of the Blink sketch that adds serial communication. It allows you to
 
 ### 9. DualLightSwitchClimateMonitor
 A cloud-connected project that monitors temperature and humidity while enabling remote control of two light switches through the Arduino IoT Cloud. Features a configurable dashboard with real-time data updates and switch controls.
+- **Required Libraries**: 
+  - `DHT sensor library`
+  - `Arduino_ConnectionHandler`
+
+#### Setup
+1. Add your Wi-Fi credentials and cloud credentials in the `thingProperties.h` file.
+2. Configure the Arduino IoT Cloud Dashboard to display temperature, humidity, and relay status and control. Ensure that the cloud variables are linked correctly for real-time updates.
+3. The relays can be controlled via the dashboard switches, while temperature and humidity readings are updated every 10 seconds.
 
 ### 10. wemos_mini_MQTT
-A pair of MQTT-based sketches for setting up communication between two Wemos D1 Mini ESP8266 boards.
+A pair of MQTT-based sketches to set up communication between two Wemos D1 Mini ESP8266 boards:
+- **wemos_mini_MQTT_publisher**: Publishes temperature data from a DHT sensor and controls two relays. Data and relay states are sent to an MQTT broker.
+- **wemos_mini_MQTT_receiver**: Displays the received temperature and relay states on an OLED screen and mirrors the relay control.
 
-wemos_mini_MQTT_publisher: Publishes temperature data from a DHT sensor and controls two relays, allowing remote relay control and data updates.
-wemos_mini_MQTT_receiver: Displays the received temperature and relay states on an OLED screen, synchronizing with the publisher to mirror relay states.
+#### Requirements
+
+- **Libraries:**
+  - `PubSubClient` - For MQTT communication between the devices and the broker.
+  - `DHT sensor library` - For reading temperature data from the DHT sensor (in the publisher sketch).
+  - `Adafruit GFX Library` and `Adafruit SSD1306` - For OLED display control (in the receiver sketch).
+
+- **MQTT Broker**: An MQTT broker is required to handle communication between the publisher and receiver. You can use a local broker like Mosquitto or an online service.
+
+#### Setup
+
+1. Add your Wi-Fi credentials in the `arduino_secrets.h` file for both the publisher and receiver projects.
+2. Set up an MQTT broker (e.g., Mosquitto) on your local network or use an external service.
+3. In the **wemos_mini_MQTT_publisher** sketch, define the broker's IP address and port:
+   ```cpp
+   const char* mqtt_server = "YOUR_BROKER_IP";
+   const int port = 1883;
 
 ## Getting Started
 
